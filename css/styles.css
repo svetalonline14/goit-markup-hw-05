@@ -121,8 +121,6 @@
     .header-list {
         display: flex;
         margin-left: 76px;
-
-       
     }
 
     .header-list .item + .item {
@@ -153,7 +151,6 @@
 
     .active::after {
         content:"";
-        display: block;
         position: absolute;
         background-color: var(--active-color-ocean);
         width: 100%;
@@ -554,12 +551,18 @@
         position: absolute;
         top: 50%;
         left: 50%;  
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%) scale(1);
+        transition: transform var(--transision-dur-and-func);
         width: 408px;
-        height: 576px;
+        min-height: 576px;
         background-color: var(--color-dairy);
         box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
         border-radius: 4px;
+
+    }
+
+    .backdrop.is-hidden .modal {
+        transform: translate(-50%, -50%) scale(0);
     }
 
     .modal-close-btn {
@@ -645,7 +648,7 @@
     .portfolio-link:hover .portfolio-overlay,
     .portfolio-link:focus .portfolio-overlay {
         transform: translate(0, 0);
-        transition: transform var(--transision-dur-and-func) ;
+        transition: transform var(--transision-dur-and-func);
     }    
 
     .portfolio-link {
